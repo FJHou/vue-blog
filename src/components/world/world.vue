@@ -1,27 +1,33 @@
 <template>
   <div class="world" v-show="showFlag">
     <back></back>
-    <div id="webgl" class="webgl"></div>
+    <div id="earth" class="earth" ref="earth"></div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 import back from '@/components/back/back'
+import Earth from '@/assets/js/earth'
 
 export default {
+  props: {
+    route: {
+      type: Boolean,
+      default: false
+    }
+  },
   data () {
     return {
       showFlag: true
     }
   },
-  destroyed () {
-    this.showFlag = true
+  mounted () {
+    console.log(this.route)
+    let earth = new Earth(this.$refs.earth)
+    this.$options = earth
   },
   methods: {
-    back () {
-      window.history.back()
-      // this.showFlag = !this.showFlag
-    }
+
   },
   components: {
     back
@@ -33,7 +39,10 @@ export default {
   @import "../../common/stylus/variable"
   .world
     position absolute
+    top: 50px
+    bottom 50px
     width 100%
-    height 100%
-    background-color $color-background20
+    background-color rgba(24, 65, 105, .6)
+    .earth
+      height 100%
 </style>

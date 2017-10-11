@@ -15,16 +15,14 @@
     name: 'app',
     data () {
       return {
-        isShow: false
+
       }
     },
     created () {
-      console.log(this)
+
     },
     methods: {
-      toggleShow () {
-        this.isShow = !this.isShow
-      }
+
     },
     components: {
       Btab
@@ -38,7 +36,8 @@
   #app
     height 100%
     background-color $color-background40
-    tranform: translate3d(100%, 0, 0)
+
+    // tranform: translate3d(100%, 0, 0)
   .bgColorChange
     animation changeColor 5s infinite
     animation-direction:alternate
@@ -48,7 +47,7 @@
 
   .slide-enter, .slide-leave-to {
     opacity: 0;
-    transform: translate3d(100%, 0, 0)
+    // transform: translate3d(100%, 0, 0)
   }
 
   @keyframes changeColor

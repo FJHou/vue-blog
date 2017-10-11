@@ -32,12 +32,12 @@
 	light.position.set(0,0,10);
 	scene.add(light);
 
-    var sphere = createSphere(radius, segments);
+  var sphere = createSphere(radius, segments);
 	sphere.rotation.y = rotation;
 	scene.add(sphere)
 
-    var clouds = createClouds(radius, segments);
-    clouds.name = 'clouds'
+  var clouds = createClouds(radius, segments);
+  clouds.name = 'clouds'
 	clouds.rotation.y = rotation;
 	scene.add(clouds)
 
@@ -55,6 +55,7 @@
 	controls.noZoom = false
 	controls.noPan = true
 	controls.staticMoving = true
+
 	webglEl.appendChild(renderer.domElement);
 	render();
 

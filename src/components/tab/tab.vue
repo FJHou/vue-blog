@@ -16,10 +16,8 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {Camera} from 'three'
 export default {
   created () {
-    console.log(Camera)
   }
 }
 </script>
@@ -35,9 +33,9 @@ export default {
     .tab-item
       padding 10px
       i
-        font-size 25px
+        font-size 26px
       span
-        padding-left 8px
+        padding-left 5px
         font-size 30px
         line-height 30px
         font-weight bold

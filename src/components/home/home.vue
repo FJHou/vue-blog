@@ -13,11 +13,11 @@
         showFlag: true
       }
     },
+    created () {
+      console.log(this.showFlag)
+    },
     methods: {
-      back () {
-        window.history.back()
-        // this.showFlag = !this.showFlag
-      }
+
     },
     components: {
       back
@@ -29,8 +29,10 @@
   @import "../../common/stylus/variable"
   .home
     position absolute
+    top: 50px
+    bottom 50px
     width 100%
-    height 100%
-    background-color $color-background80
+    // height 100%
+    background-color rgba(0, 0, 0, .6)
     // transform translate3d(100%, 0 ,0)
 </style>

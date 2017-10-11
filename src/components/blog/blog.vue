@@ -1,5 +1,5 @@
 <template>
-  <div class="blog">
+  <div class="blog" v-show="showFlag">
     <back></back>
   </div>
 </template>
@@ -16,7 +16,7 @@ export default {
   methods: {
     back () {
       window.history.back()
-      // this.showFlag = !this.showFlag
+      this.showFlag = !this.showFlag
     }
   },
   components: {
