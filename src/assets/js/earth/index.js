@@ -1,5 +1,6 @@
 import {createClouds} from './cloud'
 import {createSphere} from './sphere'
+import {createStar} from './star'
 const THREE = require('three')
 
 export default class Earth {
@@ -7,6 +8,7 @@ export default class Earth {
     this.container = typeof el === 'string' ? document.getElementById(el) : el
     this.clouds = createClouds()
     this.sphere = createSphere()
+    this.star = createStar()
     this.scene = null
     this.camera = null
     this.render = null
@@ -25,6 +27,8 @@ export default class Earth {
     this.scene = new THREE.Scene()
     this.scene.add(this.sphere)
     this.scene.add(this.clouds)
+    console.log(this.star)
+    this.scene.add(this.star)
   }
   _createCamera () {
     this.camera = new THREE.PerspectiveCamera(45, this.width / this.height, 0.01, 1000)

@@ -1,12 +1,15 @@
-import THREE from 'three'
+import {Mesh, SphereGeometry, MeshBasicMaterial, TextureLoader, BackSide} from 'three'
 import {radius, segments} from '../util'
+import {IMG_URLS} from '../constant'
 
-export function createStars(radius, segments) {
-  return new THREE.Mesh(
-    new THREE.SphereGeometry(radius, segments, segments),
-    new THREE.MeshBasicMaterial({
-      map:  THREE.ImageUtils.loadTexture('images/3524.jpg'),
-      side: THREE.BackSide
+const loader = new TextureLoader()
+
+export function createStar () {
+  return new Mesh(
+    new SphereGeometry(radius, segments, segments),
+    new MeshBasicMaterial({
+      map: loader.load(IMG_URLS.galaxy),
+      side: BackSide
     })
-  );
+  )
 }

@@ -84,7 +84,7 @@
 		return new THREE.Mesh(
 			new THREE.SphereGeometry(radius + 0.02, segments, segments),
 			new THREE.MeshPhongMaterial({
-				map:         THREE.ImageUtils.loadTexture('images/fair_clouds_4k.png'),
+				map: THREE.ImageUtils.loadTexture('images/fair_clouds_4k.png'),
 				transparent: true
 			})
 		);

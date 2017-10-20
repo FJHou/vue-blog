@@ -22,7 +22,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.route)
     let earth = new Earth(this.$refs.earth)
     this.$options = earth
   },
@@ -44,5 +43,6 @@ export default {
     width 100%
     background-color rgba(24, 65, 105, .6)
     .earth
+      width: 100%
       height 100%
 </style>

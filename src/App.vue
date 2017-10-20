@@ -3,7 +3,9 @@
     <!-- <Bhead></Bhead> -->
     <Btab></Btab>
     <transition name="slide">
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </transition>
   </div>
 </template>
