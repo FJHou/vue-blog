@@ -1,6 +1,6 @@
 <template>
   <div class="tab">
-    <router-link tag="div" class="tab-item tab-home" to="/home">
+    <router-link tag="div" class="tab-item tab-home" :to="{name: 'home', params: {id: 123, type: 'arr'}}">
       <i class="icon-home-icon-silhouette"></i>
       <span>HOME</span>
     </router-link>
@@ -30,6 +30,7 @@ export default {
     left 0px
     top 50%
     padding-left 50px;
+    color: #fff
     .tab-item
       padding 10px
       i

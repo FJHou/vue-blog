@@ -1,5 +1,6 @@
 import {Mesh, SphereGeometry, MeshPhongMaterial} from 'three'
-import {radius, segments, getTexture} from '../util'
+import {getTexture} from '../util'
+import {radius, segments} from '../constant'
 
 export function createSphere () {
   return new Mesh(

@@ -3,11 +3,6 @@ import {IMG_URLS} from './constant'
 
 const loader = new TextureLoader()
 
-// Earth params
-export const radius = 0.5
-export const segments = 32
-export const rotation = 6
-
 export function getTexture (imageName) {
   /* let image = (window.loader && window.loader.resources[imageName])
     ? window.loader.resources[imageName].data
@@ -25,4 +20,19 @@ export function getTexture (imageName) {
   } */
 
   return loader.load(IMG_URLS[imageName])
+}
+
+export function random (min, max) {
+  if (arguments.length < 2) {
+    max = min
+    min = 0
+  }
+
+  if (min > max) {
+    var hold = max
+    max = min
+    min = hold
+  }
+
+  return Math.floor(Math.random() * (max - min + 1)) + min
 }

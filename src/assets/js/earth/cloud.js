@@ -1,6 +1,5 @@
 import {Mesh, SphereGeometry, MeshPhongMaterial, TextureLoader} from 'three'
-import {radius, segments} from '../util.js'
-import {IMG_URLS} from '../constant'
+import {IMG_URLS, radius, segments} from '../constant'
 
 const loader = new TextureLoader()
 

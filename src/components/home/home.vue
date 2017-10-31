@@ -14,7 +14,7 @@
       }
     },
     created () {
-      console.log(this.showFlag)
+      console.log(this.$route.params)
     },
     methods: {
 
