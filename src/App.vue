@@ -7,11 +7,13 @@
         <router-view></router-view>
       </keep-alive>
     </transition>
+    <VideoBg></VideoBg>
   </div>
 </template>
 
 <script type="text/babel">
   import Btab from '@/components/tab/tab'
+  import VideoBg from '@/components/video-bg/video-bg'
 
   export default {
     name: 'app',
@@ -27,7 +29,8 @@
 
     },
     components: {
-      Btab
+      Btab,
+      VideoBg
     }
   }
 </script>
@@ -37,9 +40,7 @@
 
   #app
     height 100%
-    background-color $color-background40
-
-    // tranform: translate3d(100%, 0, 0)
+    background-color #ddd 
   .bgColorChange
     animation changeColor 5s infinite
     animation-direction:alternate
