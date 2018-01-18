@@ -8,9 +8,8 @@
 
 <script type="text/ecmascript-6">
 import back from '@/components/back/back'
-import Earth from '@/assets/js/earth'
-// import Star from '@/assets/js/galaxy'
-// import {stars, hue, maxStars} from 'assets/js/constant'
+// import Earth from '@/assets/js/earth'
+import Galaxy from '@/assets/js/galaxy'
 
 export default {
   props: {
@@ -26,8 +25,9 @@ export default {
     }
   },
   mounted () {
-    let earth = new Earth('earth')
-    this.$options = earth
+    let galaxy = new Galaxy('galaxy')
+    console.log(galaxy)
+    this.galaxy = galaxy
   },
   methods: {
 
@@ -42,19 +42,21 @@ export default {
   @import "../../common/stylus/variable"
   .world
     position absolute
-    top: 50px
-    bottom 50px
-    width 100%
-    background-color rgba(24, 65, 105, .6)
+    top: 0
+    bottom 0
+    left 0
+    right 0
+    background rgba(0, 0, 0, .6)
     .earth
       width: 100%
       height 100%
       background-color transparent
-  .galaxy
-    z-index -1
-    position absolute
-    top 0
-    left 0
-    width 100%
-    height 100%
+    .galaxy
+      z-index -1
+      position absolute
+      top 0
+      left 0
+      width 100%
+      height 100%
+
 </style>

@@ -71,7 +71,7 @@ export default class Earth {
   _render () {
     requestAnimationFrame(this._render.bind(this))
     this.sphere.rotation.y += 0.001
-    this.clouds.rotation.y += 0.0012
+    this.clouds.rotation.y += 0.0015
     this.render.render(this.scene, this.camera)
   }
 }
