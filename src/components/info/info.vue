@@ -36,7 +36,6 @@ export default {
     .overlay 
       position absolute
       background transparent
-      height 100%
       .title
         z-index 1
         position absolute
