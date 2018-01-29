@@ -1,5 +1,5 @@
 import { random } from '../util'
-import starBlink from './blick.js'
+import starBlink from './blink.js'
 class Star {
   constructor () {
     this.x = 375

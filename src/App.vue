@@ -1,25 +1,28 @@
 <template>
   <div id="app">
-    <!-- <Bhead></Bhead> -->
-    <Btab></Btab>
-    <transition name="slide">
-      <keep-alive>
-        <router-view></router-view>
-      </keep-alive>
-    </transition>
-    <VideoBg></VideoBg>
+    <Scroll :data="data" class="scroll-wrapper">
+      <div>
+        <Info></Info>
+        <div class="section section-two">
+
+        </div>
+        <div class="section section-three">
+
+        </div>
+      </div>
+    </Scroll>
   </div>
 </template>
 
 <script type="text/babel">
-  import Btab from '@/components/tab/tab'
-  import VideoBg from '@/components/video-bg/video-bg'
+  import Scroll from 'base/scroll/scroll'
+  import Info from 'components/info/info'
 
   export default {
     name: 'app',
     data () {
       return {
-
+        data: []
       }
     },
     created () {
@@ -29,33 +32,29 @@
 
     },
     components: {
-      Btab,
-      VideoBg
+      Scroll,
+      Info
     }
   }
 </script>
 
 <style lang="stylus">
-  @import 'common/stylus/variable'
+  // @import 'common/stylus/variable'
 
   #app
     height 100%
-    background-color #ddd 
-  .bgColorChange
-    animation changeColor 5s infinite
-    animation-direction:alternate
-  .slide-enter-active, .slide-leave-active {
-    transition: all .5s ease;
-  }
-
-  .slide-enter, .slide-leave-to {
-    opacity: 0;
-    // transform: translate3d(100%, 0, 0)
-  }
-
-  @keyframes changeColor
-    from
-      background-color $color-background0
-    to
-      background-color $color-background40
+    background-color #f9f9f9
+    .scroll-wrapper
+      position absolute
+      left 0
+      right 0
+      top 0
+      bottom 0
+      overflow hidden
+      .section
+        height 400px
+      .section-two
+        background #000
+      .section-three
+        background pink
 </style>
