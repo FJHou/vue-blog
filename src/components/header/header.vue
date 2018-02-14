@@ -1,6 +1,8 @@
 <template>
   <header class="head">
-    我是头部
+    <div class="left">
+      三
+    </div>
   </header>
 </template>
 
@@ -10,6 +12,17 @@ export default {}
 
 <style lang="stylus">
   .head
-    height: 50px;
-    background-color: #184169
+    position fixed
+    top 0
+    left 0
+    width 100%
+    line-height 50px
+    height 50px
+    z-index 2
+    color white
+    background-color transparent
+    .left
+      position absolute
+      height 100%
+      padding 0 20px
 </style>

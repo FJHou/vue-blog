@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <!-- <Bhead></Bhead> -->
+    <Bhead></Bhead>
+    <Bnav></Bnav>
     <Btab></Btab>
     <transition name="slide">
       <keep-alive>
@@ -14,7 +15,8 @@
 <script type="text/babel">
   import Btab from '@/components/tab/tab'
   import VideoBg from '@/components/video-bg/video-bg'
-
+  import Bnav from '@/components/nav/nav'
+  import Bhead from '@/components/header/header'
   export default {
     name: 'app',
     data () {
@@ -30,6 +32,8 @@
     },
     components: {
       Btab,
+      Bnav,
+      Bhead,
       VideoBg
     }
   }

@@ -2,14 +2,12 @@
   <div class="world" v-show="showFlag">
     <back></back>
     <div id="earth" class="earth" ref="earth"></div>
-    <canvas id="galaxy" class="galaxy"></canvas>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 import back from '@/components/back/back'
-// import Earth from '@/assets/js/earth'
-import Galaxy from '@/assets/js/galaxy'
+import Earth from '@/assets/js/earth'
 
 export default {
   props: {
@@ -25,9 +23,8 @@ export default {
     }
   },
   mounted () {
-    let galaxy = new Galaxy('galaxy')
-    console.log(galaxy)
-    this.galaxy = galaxy
+    this.earth = new Earth('earth')
+
   },
   methods: {
 
