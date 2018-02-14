@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import '@/common/stylus/index.styl'
-// import 'normalize.css/normalize.css'
+// import '@/common/css/semantic.min.css'
 
 Vue.config.productionTip = false
 

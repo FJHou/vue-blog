@@ -3,6 +3,7 @@
     <Bhead></Bhead>
     <Bnav></Bnav>
     <Btab></Btab>
+
     <transition name="slide">
       <keep-alive>
         <router-view></router-view>
