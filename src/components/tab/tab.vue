@@ -1,6 +1,6 @@
 <template>
   <div class="tab">
-    <router-link tag="div" class="tab-item tab-home" :to="{name: 'home', params: {id: 123, type: 'arr'}}">
+    <router-link tag="div" class="tab-item tab-home" to="/home">
       <i class="icon-home-icon-silhouette"></i>
       <span>HOME</span>
     </router-link>

@@ -3,11 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import Vuetify from 'vuetify'
 import '@/common/stylus/index.styl'
-// import '@/common/css/semantic.min.css'
+import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
 
 Vue.config.productionTip = false
-
+Vue.use(Vuetify)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -4,12 +4,19 @@ import Home from '@/components/home/home'
 import World from '@/components/world/world'
 import Blog from '@/components/blog/blog'
 
+const Article = (resovle) => {
+  import('components/article/article').then((module) => {
+    resovle(module)
+  }) 
+}
+
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
-      path: '/home/:id:type',
+      path: '/home',
       name: 'home',
       component: Home
     },
@@ -22,7 +29,13 @@ export default new Router({
     {
       path: '/blog',
       name: 'blog',
-      component: Blog
+      component: Blog,
+      children: [
+        {
+          path: '/blog/article',
+          component: Article
+        }
+      ]
     }
   ]
 })

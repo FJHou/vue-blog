@@ -3,48 +3,41 @@
     <back></back>
     <div class="list-wrapper" ref="listWrapper">
       <ul>
-        <li v-for="item in blogList" class="blog-item">
-          <div class="item">
-            <div class="img-wrapper">
-              <img :src="item.img">
-            </div>
-            <p class="title">{{item.title}}</p>
-            <p class="introduction">{{item.content}}</p>
-            <p class="date">{{item.date}}</p>
-          </div>
+        <li class="blog-item" 
+            v-for="(item, index) in blogList" 
+            :key="index"
+            @click="readArticle(item.id)">
+          <v-layout>
+            <v-flex xs12 sm6 offset-sm3>
+              <v-card>
+                <v-card-media :src="item.img" height="250px">
+                </v-card-media>
+                <v-card-title primary-title>
+                  <div>
+                    <h3 class="headline mb-0">{{item.title}}</h3>
+                    <div>{{item.content}}</div>
+                  </div>
+                </v-card-title>
+                <v-card-actions>
+                  <!-- <v-btn flat color="orange">Share</v-btn> -->
+                  <!-- <v-btn flat color="orange">Explore</v-btn> -->
+                </v-card-actions>
+              </v-card>
+            </v-flex>
+          </v-layout>
         </li>
       </ul>
     </div>
+    <router-view></router-view>
     <div class="blog-loading" v-show="!blogList">
-      <div class="loading-wrapper">
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             width="24px" height="30px" viewBox="0 0 24 30" style="enable-background:new 0 0 50 50;" xml:space="preserve">
-          <rect x="0" y="0" width="4" height="10" fill="#fff">
-            <animateTransform attributeType="xml"
-              attributeName="transform" type="translate"
-              values="0 0; 0 20; 0 0"
-              begin="0" dur="0.7" repeatCount="indefinite" />
-          </rect>
-          <rect x="10" y="0" width="4" height="10" fill="#fff">
-            <animateTransform attributeType="xml"
-              attributeName="transform" type="translate"
-              values="0 0; 0 20; 0 0"
-              begin="0.2s" dur="0.7" repeatCount="indefinite" />
-          </rect>
-          <rect x="20" y="0" width="4" height="10" fill="#fff">
-            <animateTransform attributeType="xml"
-              attributeName="transform" type="translate"
-              values="0 0; 0 20; 0 0"
-              begin="0.4s" dur="0.7" repeatCount="indefinite" />
-          </rect>
-        </svg>
-      </div>
+      <Loading></Loading>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 import back from '@/components/back/back'
+import Loading from '@/components/loading/loading'
 import {getBlogList} from '@/api/getBlogList'
 import {mockGetBlogList} from 'mock/getBlogList'
 import BScroll from 'better-scroll'
@@ -62,24 +55,21 @@ export default {
   },
   mounted () {
     this._getBlogList()
-    // axios.get('localhost:8180/a')
-    //     .then((res) => {
-    //       this.blogList = res.data.list
-    //       this.$nextTick(() => {
-    //         this.initBscroll()
-    //       })
-    //     })
-    //     .catch((err) => {
-    //       console.log(err)
-    //     })
   },
   methods: {
+    readArticle (id) {
+      this.$router.push({
+        path: `/blog/article?id=${id}`
+      })
+    },
     back () {
       window.history.back()
       this.showFlag = !this.showFlag
     },
     initBscroll () {
-      this.scroll = new BScroll(this.$refs.listWrapper, {})
+      this.scroll = new BScroll(this.$refs.listWrapper, {
+        click: true
+      })
     },
     _getBlogList () {
       getBlogList().then((res) => {
@@ -92,7 +82,8 @@ export default {
     }
   },
   components: {
-    back
+    back,
+    Loading
   }
 }
 </script>
@@ -100,22 +91,25 @@ export default {
 <style lang="stylus">
   @import "../../common/stylus/variable"
   .blog
-    position: relative
-    height 100%
+    position: absolute
+    top 0
+    left 0
+    right 0
+    bottom 0
     background-color $color-background0
     .list-wrapper
       position absolute
-      bottom 40px
-      top 60px
+      bottom 0
+      top 0
       left 0
       padding: 0 20px
       overflow hidden
       .blog-item
-        padding 10px
-        margin-bottom 10px
-        background-color #fff
-        border-radius 2px
-        box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2)
+        // padding 10px
+        margin-bottom 30px
+        // background-color #fff
+        // border-radius 2px
+        // box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2)
         .item
           .img-wrapper
             padding-top 80%
@@ -133,9 +127,9 @@ export default {
       left 0
       width 100%
       display flex
-      .loading-wrapper
-        display inline-block
-        margin auto
+        // .loading-wrapper
+        //   display inline-block
+        //   margin auto
         // svg
         //   path
         //     fill: #fff;
