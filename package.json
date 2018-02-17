@@ -12,12 +12,8 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
-<<<<<<< HEAD
     "jquery": "^3.2.1",
     "normalize.css": "^8.0.0",
-=======
-    "normalize.css": "^7.0.0",
->>>>>>> 9a0468ccc0a3076ffd6e8c3d13b90df6df20d52d
     "three": "^0.87.1",
     "three-orbitcontrols": "^1.2.1",
     "vue": "^2.4.2",
