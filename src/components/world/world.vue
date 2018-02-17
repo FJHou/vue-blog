@@ -7,7 +7,12 @@
 
 <script type="text/ecmascript-6">
 import back from '@/components/back/back'
+<<<<<<< HEAD
 import Earth from '@/assets/js/earth'
+=======
+// import Earth from '@/assets/js/earth'
+// import Galaxy from '@/assets/js/galaxy'
+>>>>>>> 9a0468ccc0a3076ffd6e8c3d13b90df6df20d52d
 
 export default {
   props: {
@@ -23,8 +28,15 @@ export default {
     }
   },
   mounted () {
+<<<<<<< HEAD
     this.earth = new Earth('earth')
 
+=======
+    // let earth = new Earth('earth')
+    // this.earth = earth
+    // let galaxy = new Galaxy('star')
+    // this.galaxy = galaxy
+>>>>>>> 9a0468ccc0a3076ffd6e8c3d13b90df6df20d52d
   },
   methods: {
 
