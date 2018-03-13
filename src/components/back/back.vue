@@ -19,7 +19,7 @@ export default {
     position absolute
     left 20px
     top 20px
-    color #fff
+    color #ccc
     .icon-arrow-left2
       font-size 26px
 </style>

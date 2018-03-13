@@ -38,6 +38,7 @@ export default {
   @import "../../common/stylus/variable"
   .world
     position absolute
+    z-index 11
     top: 0
     bottom 0
     left 0

@@ -7,7 +7,7 @@
       </p>
     </div>
 
-     <video src="../../assets/video/bridge_video.mp4" loop autoplay class="video-bg"></video>
+     <!-- <video src="../../assets/video/bridge_video.mp4" loop autoplay class="video-bg"></video> -->
   </div>
 </template>
 
@@ -35,9 +35,9 @@ export default {
     font-size 0
     .overlay 
       position absolute
-      background transparent
+      background #fff
       .title
-        z-index 1
+        // z-index 1
         position absolute
         left 0
         top 0

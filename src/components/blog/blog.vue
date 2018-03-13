@@ -1,7 +1,8 @@
 <template>
   <div class="blog" v-show="showFlag">
     <back></back>
-    <div class="list-wrapper" ref="listWrapper">
+
+    <Scroll class="list-wrapper" ref="listWrapper" :listenScroll="true" @scroll="scrolling">
       <ul>
         <li class="blog-item" 
             v-for="(item, index) in blogList" 
@@ -27,7 +28,7 @@
           </v-layout>
         </li>
       </ul>
-    </div>
+    </Scroll>
     <router-view></router-view>
     <div class="blog-loading" v-show="!blogList">
       <Loading></Loading>
@@ -40,7 +41,8 @@ import back from '@/components/back/back'
 import Loading from '@/components/loading/loading'
 import {getBlogList} from '@/api/getBlogList'
 import {mockGetBlogList} from 'mock/getBlogList'
-import BScroll from 'better-scroll'
+import Bus from 'base/event-bus/event-bus.js'
+import Scroll from 'base/scroll/scroll'
 
 export default {
   data () {
@@ -62,28 +64,24 @@ export default {
         path: `/blog/article?id=${id}`
       })
     },
-    back () {
-      window.history.back()
-      this.showFlag = !this.showFlag
-    },
-    initBscroll () {
-      this.scroll = new BScroll(this.$refs.listWrapper, {
-        click: true
-      })
-    },
     _getBlogList () {
       getBlogList().then((res) => {
         this.blogList = res.list
         console.log(this.blogList)
         this.$nextTick(() => {
-          this.initBscroll()
+          this.$refs.listWrapper.refresh()
         })
       })
+    },
+    scrolling (e) {
+      // console.log(Bus)
+      Bus.$emit('scrolling', e)
     }
   },
   components: {
     back,
-    Loading
+    Loading,
+    Scroll
   }
 }
 </script>
@@ -96,20 +94,20 @@ export default {
     left 0
     right 0
     bottom 0
-    background-color $color-background0
+    // background-color $color-background0
+    z-index 9
     .list-wrapper
       position absolute
       bottom 0
       top 0
       left 0
-      padding: 0 20px
+      right 0
+      margin-top 60px
+      padding: 0px 10px
       overflow hidden
       .blog-item
-        // padding 10px
         margin-bottom 30px
-        // background-color #fff
-        // border-radius 2px
-        // box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2)
+        list-style none
         .item
           .img-wrapper
             padding-top 80%

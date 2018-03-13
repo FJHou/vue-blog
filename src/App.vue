@@ -4,15 +4,14 @@
       <Bmenu></Bmenu>
       <!-- <Bhead></Bhead> -->
       <!-- <Bnav></Bnav> -->
-      <Btab></Btab>
+      <!-- <Btab></Btab> -->
       <transition name="slide">
         <keep-alive>
           <router-view></router-view>
         </keep-alive>
       </transition>
       <!-- <VideoBg></VideoBg> -->
-    </v-app>
-    <Scroll :data="data" class="scroll-wrapper">
+    <!-- <Scroll :data="data" class="scroll-wrapper">
       <div>
         <Info></Info>
         <div class="section section-two">
@@ -22,12 +21,14 @@
 
         </div>
       </div>
-    </Scroll>
+    </Scroll> -->
+    </v-app>
+
   </div>
 </template>
 
 <script type="text/babel">
-  import Btab from '@/components/tab/tab'
+  // import Btab from '@/components/tab/tab'
   import Bmenu from 'components/menu/menu'
   // import VideoBg from '@/components/video-bg/video-bg'
   // import Bnav from '@/components/nav/nav'
@@ -49,7 +50,7 @@
 
     },
     components: {
-      Btab,
+      // Btab,
       Bmenu,
       // Bnav,
       // Bhead,
