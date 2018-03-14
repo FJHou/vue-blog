@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-wrapper" :class="[{'open': open}, {'hide': flag}]">
+  <div class="menu-wrapper" :class="[{'open': open}]">
     <div class="menu" @click="toggleOpen">
       <i class="line line1"></i>
       <i class="line line2"></i>
