@@ -67,7 +67,6 @@ export default {
     _getBlogList () {
       getBlogList().then((res) => {
         this.blogList = res.list
-        console.log(this.blogList)
         this.$nextTick(() => {
           this.$refs.listWrapper.refresh()
         })

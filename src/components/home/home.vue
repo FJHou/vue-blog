@@ -14,7 +14,7 @@
       }
     },
     created () {
-      console.log(this.$route.params)
+
     },
     methods: {
 
