@@ -117,8 +117,8 @@ export default {
     bottom  30px
     right 30px
     z-index 9
-    width 40px
-    height 40px
+    width 80px
+    height 80px
     line-height 40px
     text-align center
     color #ccc

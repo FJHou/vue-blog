@@ -7,8 +7,22 @@ import {
   PerspectiveCamera,
   WebGLRenderer,
   AmbientLight,
-  DirectionalLight
+  DirectionalLight,
+  Vector2,
+  Raycaster,
+  SpriteMaterial,
+  Sprite,
+  Points,
+  SphereGeometry
 } from 'three'
+
+import * as three from  'three'
+console.log(three)
+
+
+var spriteMaterial = new SpriteMaterial( { color: 0xffffff, fog: true } );
+console.log(spriteMaterial)
+
 
 export default class Earth {
   constructor (el, opts) {
@@ -25,12 +39,14 @@ export default class Earth {
     this._init()
   }
   _init () {
+    this._createPoints()
     this._createScence()
     this._createCamera()
     this._createRender()
     this._creatLight()
     this._creatController()
     this._render()
+    this._bindMouseEvent()
   }
   _creatController () {
     this.controller = creatController(this.camera, this.container)
@@ -46,7 +62,24 @@ export default class Earth {
     // this.scene.add(this.star)
     this.scene.add(this.sphere)
     this.scene.add(this.clouds)
+    this.scene.add(this.point)
   }
+  _createPoints () {
+    let geometry = new SphereGeometry( 5, 32, 32 )
+    this.point = new Points(geometry)
+    // console.log(intersect[ 0 ].point)
+    this.point.position.copy( {
+      x: -0.05113675741487386,
+      y: 0.23462747519765664,
+      z: 0.4375744039151323
+    } );
+    // var particle = new Sprite(spriteMaterial);
+    // console.log(particle)
+    // particle.position.copy( intersect[ 0 ].point );
+    // particle.scale.x = particle.scale.y = 0.1;
+    
+  }
+
   _createCamera () {
     this.camera = new PerspectiveCamera(45, this.width / this.height, 0.01, 1000)
     this.camera.position.z = 2.5
@@ -72,6 +105,24 @@ export default class Earth {
     requestAnimationFrame(this._render.bind(this))
     this.sphere.rotation.y += 0.001
     this.clouds.rotation.y += 0.0015
+    this.point.rotation.y += 0.001
     this.render.render(this.scene, this.camera)
   }
+  _bindMouseEvent () {
+    let mouse = new Vector2();
+    let raycaster = new Raycaster();
+    let renderOffset = this.render.domElement.getBoundingClientRect();
+
+    this.container.addEventListener('mousedown', (e) => {
+      mouse.x = ( (e.clientX - renderOffset.x) / this.render.domElement.clientWidth ) * 2 - 1;
+      mouse.y = -(( (e.clientY - renderOffset.y) / this.render.domElement.clientHeight ) * 2 - 1);
+
+      raycaster.setFromCamera( mouse, this.camera );
+      let intersect = raycaster.intersectObject(this.sphere);
+      
+
+    })
+  }
 }
+
+
