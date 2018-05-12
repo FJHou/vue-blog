@@ -39,7 +39,7 @@ export default class Earth {
     this._init()
   }
   _init () {
-    this._createPoints()
+    // this._createPoints()
     this._createScence()
     this._createCamera()
     this._createRender()
@@ -105,7 +105,7 @@ export default class Earth {
     requestAnimationFrame(this._render.bind(this))
     this.sphere.rotation.y += 0.001
     this.clouds.rotation.y += 0.0015
-    this.point.rotation.y += 0.001
+    // this.point.rotation.y += 0.001
     this.render.render(this.scene, this.camera)
   }
   _bindMouseEvent () {
